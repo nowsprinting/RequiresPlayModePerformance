@@ -45,6 +45,9 @@ public class RunTestsPerformance : ICallbacks
 
     public void TestFinished(ITestResultAdaptor result)
     {
-        // nop
+        if (result.Test.UniqueName.Contains("[suite]"))
+        {
+            Debug.Log($"{result.Test.UniqueName} finished. Time={result.Duration}[sec]");
+        }
     }
 }
